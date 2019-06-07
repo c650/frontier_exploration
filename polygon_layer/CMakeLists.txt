@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(polygon_layer)
 
-set_directory_properties(PROPERTIES COMPILE_OPTIONS "/std:c++14;/Wall")
+if (MSVC)
+  set_directory_properties(PROPERTIES COMPILE_OPTIONS "/std:c++14;/Wall")
+else()
+  set_directory_properties(PROPERTIES COMPILE_OPTIONS "-std=c++14;-Wall;-Werror")
+endif()
 
 find_package(catkin REQUIRED COMPONENTS
   costmap_2d

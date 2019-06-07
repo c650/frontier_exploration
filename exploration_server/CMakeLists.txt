@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(exploration_server)
 
-set_directory_properties(PROPERTIES COMPILE_OPTIONS "/std:c++14;/Wall")
+if (MSVC)
+  set_directory_properties(PROPERTIES COMPILE_OPTIONS "/std:c++14;/Wall")
+else()
+  set_directory_properties(PROPERTIES COMPILE_OPTIONS "-std=c++14;-Wall;-Werror")
+endif()
 
 find_package(catkin REQUIRED COMPONENTS actionlib costmap_2d exploration_msgs roscpp move_base_msgs tf)
 
