@@ -9,6 +9,7 @@ endif()
 
 find_package(catkin REQUIRED COMPONENTS actionlib costmap_2d exploration_msgs roscpp move_base_msgs tf)
 
+# todo: need to add Boost as dependency in package.xml
 find_package(Boost REQUIRED)
 
 catkin_package(
